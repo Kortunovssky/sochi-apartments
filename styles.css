@@ -1,0 +1,66 @@
+:root {
+  --primary-color: #ff6b08;
+  --secondary-color: #1e88e5;
+  --dark-bg: #212121;
+  --light-text: #ffffff;
+  --dark-text: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark-bg);
+  font-family: 'Helvetica', Arial, sans-serif;
+  color: var(--light-text);
+  line-height: 1.6;
+}
+
+.apartment-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.apartment-card:hover {
+  transform: translateY(-5px);
+}
+
+.apartment-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.booking-form {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e65100;
+}
+
+@media (max-width: 768px) {
+  .apartment-card {
+    margin-bottom: 20px;
+  }
+}
