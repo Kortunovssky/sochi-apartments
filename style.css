@@ -1,80 +1,301 @@
-// Данные апартаментов
-const apartments = [
-  {
-    id: 1,
-    title: "Морской бриз",
-    location: "Сочи, Адлер",
-    price: 35000,
-    beds: 2,
-    area: 85,
-    description: "Элитные апартаменты с панорамным видом на море, современный ремонт и инфраструктура премиум-класса.",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    features: ["Вид на море", "2 спальни", "Бассейн", "Парковка"]
-  },
-  {
-    id: 2,
-    title: "Центральный люкс",
-    location: "Сочи, Центр",
-    price: 45000,
-    beds: 3,
-    area: 120,
-    description: "Роскошные апартаменты в самом центре города с панорамными окнами и дизайнерским ремонтом.",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    features: ["Центр города", "3 спальни", "Консьерж-сервис", "Терраса"]
-  },
-  {
-    id: 3,
-    title: "Горная вилла",
-    location: "Красная Поляна",
-    price: 60000,
-    beds: 4,
-    area: 180,
-    description: "Эксклюзивная вилла у подножья гор с частным садом и SPA-комплексом.",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    features: ["Горный вид", "4 спальни", "Частный бассейн", "Камин"]
+/* Base Styles */
+:root {
+  --primary: #ff6b08;
+  --secondary: #1e88e5;
+  --dark: #212121;
+  --light: #ffffff;
+  --gray: #aaaaaa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark);
+  font-family: 'Helvetica', Arial, sans-serif;
+  color: var(--light);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background-color: rgba(33, 33, 33, 0.9);
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--primary);
+}
+
+.phone {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: var(--primary);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.phone:hover {
+  background-color: #e65100;
+}
+
+/* Main Content */
+.main-content {
+  padding: 180px 0 80px;
+  background-color: var(--dark);
+}
+
+.main-info {
+  max-width: 600px;
+}
+
+.main-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.main-info p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #e65100;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Apartments Section */
+.black-block {
+  height: 40px;
+  background-color: #111;
+}
+
+.apartments {
+  padding: 60px 0;
+}
+
+.apartments h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.apartments-content {
+  display: flex;
+  gap: 30px;
+}
+
+.apartments-filter {
+  width: 250px;
+}
+
+.apartments-filter ul {
+  list-style: none;
+}
+
+.apartments-filter li {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+.apartments-filter li.active {
+  background-color: rgba(255, 107, 8, 0.2);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.apartments-items {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.apartment {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.apartment:hover {
+  transform: translateY(-5px);
+}
+
+.apartment img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.apartment-details {
+  padding: 20px;
+}
+
+.apartment-details h4 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.apartment-details p {
+  margin-bottom: 15px;
+  color: var(--gray);
+}
+
+.apartment-action {
+  margin-top: 20px;
+}
+
+.apartment-action ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.apartment-action li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.white-button {
+  background-color: white;
+  color: var(--dark);
+}
+
+.white-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  padding: 40px 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  height: 50px;
+  margin-right: 30px;
+}
+
+.footer-info {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .apartments-content {
+    flex-direction: column;
   }
-];
-
-// Инициализация приложения
-document.addEventListener('DOMContentLoaded', initApp);
-
-function initApp() {
-  const appRoot = document.querySelector('app-root');
-  appRoot.innerHTML = '<div class="apartments-grid"></div>';
-  renderApartments();
-}
-
-function renderApartments() {
-  const container = document.querySelector('.apartments-grid');
   
-  apartments.forEach(apartment => {
-    const card = document.createElement('div');
-    card.className = 'apartment-card';
-    card.id = `apartment-${apartment.id}`;
-    card.innerHTML = `
-      <div class="apartment-image-container">
-        <img 
-          class="apartment-image" 
-          src="${apartment.image}" 
-          alt="${apartment.title}" 
-          loading="lazy"
-        >
-      </div>
-      <div class="apartment-info">
-        <h3>${apartment.title}</h3>
-        <p class="location">${apartment.location}</p>
-        <p class="features">${apartment.beds} спальни • ${apartment.area} м²</p>
-        <p class="apartment-description">${apartment.description}</p>
-        <p class="price">${apartment.price.toLocaleString()} ₽/ночь</p>
-        <button class="book-btn" onclick="showBookingForm(${apartment.id})">Забронировать</button>
-      </div>
-    `;
-    container.appendChild(card);
-  });
+  .apartments-filter {
+    width: 100%;
+  }
 }
 
-// Функция для формы бронирования
-window.showBookingForm = function(apartmentId) {
-  const apartment = apartments.find(a => a.id === apartmentId);
-  alert(`Бронирование: ${apartment.title}\nЦена: ${apartment.price.toLocaleString()} ₽/ночь\n\nМы свяжемся с вами для подтверждения!`);
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .menu ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .main-content {
+    padding-top: 220px;
+    text-align: center;
+  }
+  
+  .main-info {
+    margin-bottom: 40px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
