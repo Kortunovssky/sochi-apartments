@@ -1,6 +1,88 @@
 <!DOCTYPE html>
 <html lang="ru" data-beasties-container>
   <head>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Apartments" />
+    </div>
+    <nav class="menu">
+      <ul>
+        <li>
+          <a href="#apartments">Наши апартаменты</a>
+        </li>
+        <li>
+          <a href="#booking">Забронировать</a>
+        </li>
+        <li>
+          <a href="#contacts">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+    <a href="tel:+78622123456" class="phone">+7 (862) 212-34-56</a>
+  </div>
+</header>
+
+<section class="main-content">
+  <div class="container">
+    <div class="main-info">
+      <h1>Элитные апартаменты в Сочи с видом на море и горы</h1>
+      <p>
+        От роскошных пентхаусов до приватных вилл - выбирайте идеальное жилье для отдыха 
+        и наслаждайтесь комфортом премиум-класса на берегу Черного моря!
+      </p>
+      <a href="#apartments" class="button" id="main-action-button">Выбрать апартаменты</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+         alt="Премиальные апартаменты в Сочи"
+         class="main-image" loading="lazy" />
+  </div>
+</section>
+
+  <div class="black-block"></div>
+</main>
+
+<section class="cars" id="cars">
+<div class="container">
+<h2>Выберите автомобиль</h2>
+<div class="cars-content" id="cars-content" #carscontent> 
+  <aside class="cars-filter">
+    <ul>
+      @for (filter of carsFilter; track $index) {
+      <li [class.active]="filter.active" (click)="changeFilter(filter, carscontent)">{{ filter.name }}</li>
+      }
+    </ul>
+  </aside>
+    <div class="cars-items">
+      @for (car of cars; track car.title) {
+      <article class="car">
+        <img src="{{car.image}}" alt="car">
+        <div class="car-details">
+        <h4>{{car.title}}</h4>
+        <p>
+          {{car.text}}
+        </p>
+          <div class="car-action">
+            <ul>
+              @for (period of ["На 1 сутки", "На 1-3 суток", "3+ суток"]; track $index) {
+              <li>
+                <div class="car-period">{{period}}</div>
+                <div class="car-price">{{car.prices[$index]}} $ @if($index >0) {<span>сут</span>}</div>
+              </li>
+              }
+         </ul>
+         <a href="#order" class="button white-button" (click)="this.orderForm.get('car')?.setValue(car.title)">Забронировать</a>
+          </div>
+      </div>
+    </article>
+   }
+  </div>
+</div>
+</div>
+</section>
+    
+    
     <title>Elite Sochi Apartments | Аренда элитных апартаментов</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
