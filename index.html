@@ -8,18 +8,45 @@
     <style>
       *{margin:0;padding:0;box-sizing:border-box}
       html{scroll-behavior:smooth}
-      body{background-color:#212121;font-family:Helvetica,Arial,sans-serif;color:#fff}
-      app-root{display:block;min-height:100vh}
-      .loading{text-align:center;padding-top:50vh}
+      body{background-color:#212121;font-family:Helvetica,Arial,sans-serif;color:#fff;display:flex;flex-direction:column;min-height:100vh}
+      app-root{flex:1}
+      .loading{text-align:center;padding-top:40vh}
     </style>
     <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
     <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preload" href="https://i.ibb.co/0jQ5ZPx/estate-logo.png" as="image">
   </head>
   <body>
+    <header>
+      <div class="header-container">
+        <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Logo" class="logo">
+        <div class="header-info">
+          <h1>Elite Sochi Apartments</h1>
+          <p>Агентство элитной недвижимости с 1996 года</p>
+        </div>
+      </div>
+      <nav class="apartment-nav">
+        <a href="#apartment-1" class="nav-link">Морской бриз</a>
+        <a href="#apartment-2" class="nav-link">Центральный люкс</a>
+        <a href="#apartment-3" class="nav-link">Горная вилла</a>
+      </nav>
+    </header>
+
     <app-root>
       <div class="loading">Загрузка...</div>
     </app-root>
+
+    <footer>
+      <div class="footer-content">
+        <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Logo" class="footer-logo">
+        <div class="footer-info">
+          <p>© 1996-2023 Elite Sochi Apartments</p>
+          <p>г. Сочи, ул. Приморская, 15</p>
+          <p>+7 (862) 123-45-67</p>
+        </div>
+      </div>
+    </footer>
     
     <script src="polyfills.js" type="module" defer></script>
     <script src="main.js" type="module" defer></script>
