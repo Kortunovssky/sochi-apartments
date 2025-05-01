@@ -1,71 +1,463 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <title>Elite Sochi Apartments | Аренда элитных апартаментов</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/sochi-apartments/">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preload" href="https://i.ibb.co/0jQ5ZPx/estate-logo.png" as="image">
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Apartments">
-            </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#apartments">Наши апартаменты</a></li>
-                    <li><a href="#booking">Забронировать</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                </ul>
-            </nav>
-            <a href="tel:+78622123456" class="phone">+7 (862) 212-34-56</a>
-        </div>
-    </header>
+:root {
+  --primary: #ff6b08;
+  --dark: #212121;
+  --light: #ffffff;
+  --gray: #aaaaaa;
+  --dark-gray: #333333;
+}
 
-    <section class="main-content">
-        <div class="container">
-            <div class="main-info">
-                <h1>Элитные апартаменты в Сочи с видом на море и горы</h1>
-                <p>От роскошных пентхаусов до приватных вилл - выбирайте идеальное жилье для отдыха</p>
-                <a href="#apartments" class="button">Выбрать апартаменты</a>
-            </div>
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                 alt="Премиальные апартаменты" class="main-image" loading="lazy">
-        </div>
-    </section>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <section class="apartments" id="apartments">
-        <div class="container">
-            <h2>Наши апартаменты</h2>
-            <div class="apartments-content">
-                <aside class="apartments-filter">
-                    <ul>
-                        <li class="active" data-type="all">Все</li>
-                        <li data-type="sea-view">С видом на море</li>
-                        <li data-type="luxury">Люксы</li>
-                        <li data-type="villa">Виллы</li>
-                    </ul>
-                </aside>
-                <div class="apartments-items" id="apartments-items"></div>
-            </div>
-        </div>
-    </section>
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-    <footer class="footer">
-        <div class="container">
-            <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Logo" class="footer-logo">
-            <div class="footer-info">
-                <p>© 1996-2023 Elite Sochi Apartments</p>
-                <p>г. Сочи, ул. Приморская, 15</p>
-                <p>+7 (862) 123-45-67</p>
-            </div>
-        </div>
-    </footer>
+body {
+  font-family: 'Helvetica', Arial, sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    <script src="main.js"></script>
-</body>
-</html>
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+  background-color: rgba(33, 33, 33, 0.95);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  transition: transform 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.menu a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+  position: relative;
+  padding: 5px 0;
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s;
+}
+
+.menu a:hover {
+  color: var(--primary);
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+.phone {
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.phone:hover {
+  background-color: #e65100;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content */
+.main-content {
+  padding: 100px 0;
+  background: linear-gradient(rgba(33, 33, 33, 0.8), rgba(33, 33, 33, 0.8)), 
+              url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+}
+
+.main-content .container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.main-info {
+  flex: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.main-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.main-info p {
+  margin-bottom: 30px;
+  color: var(--gray);
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #e65100;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.main-image {
+  flex: 1;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  animation: slideIn 1s ease-in-out;
+  transition: transform 0.3s;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+/* Apartments Section */
+.apartments {
+  padding: 80px 0;
+  background-color: var(--dark-gray);
+}
+
+.apartments h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.apartments h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background-color: var(--primary);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.apartments-content {
+  display: flex;
+  gap: 40px;
+}
+
+.apartments-filter {
+  width: 250px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+}
+
+.apartments-filter ul {
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.apartments-filter li {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.apartments-filter li:last-child {
+  margin-bottom: 0;
+}
+
+.apartments-filter li:hover {
+  background-color: rgba(255, 107, 8, 0.1);
+}
+
+.apartments-filter li.active {
+  background-color: rgba(255, 107, 8, 0.2);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.apartments-items {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.apartment {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.apartment:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.apartment img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.apartment:hover img {
+  transform: scale(1.05);
+}
+
+.apartment-details {
+  padding: 25px;
+}
+
+.apartment-details h4 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+.apartment-details p {
+  margin-bottom: 15px;
+  color: var(--gray);
+}
+
+.apartment-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.apartment-features span {
+  background-color: rgba(255, 107, 8, 0.1);
+  color: var(--primary);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.apartment-action {
+  margin-top: 20px;
+}
+
+.apartment-action ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.apartment-action li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.apartment-action li:last-child {
+  border-bottom: none;
+}
+
+.apartment-period {
+  font-weight: 500;
+}
+
+.apartment-price {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.apartment-price span {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.white-button {
+  background-color: white;
+  color: var(--dark);
+  display: block;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.white-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+  background-color: #111;
+  padding: 50px 0 30px;
+  margin-top: auto;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 60px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+.footer-info {
+  color: var(--gray);
+  text-align: right;
+}
+
+.footer-info p {
+  margin-bottom: 10px;
+}
+
+.footer-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .main-content .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .main-info {
+    margin-bottom: 40px;
+  }
+  
+  .main-image {
+    max-width: 100%;
+  }
+  
+  .apartments-content {
+    flex-direction: column;
+  }
+  
+  .apartments-filter {
+    width: 100%;
+    position: static;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .header .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .apartments-items {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .footer-info {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-info h1 {
+    font-size: 2rem;
+  }
+  
+  .button {
+    width: 100%;
+  }
+}
