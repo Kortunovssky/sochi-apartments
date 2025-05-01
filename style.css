@@ -1,6 +1,5 @@
 :root {
   --primary: #ff6b08;
-  --secondary: #1e88e5;
   --dark: #212121;
   --light: #ffffff;
 }
@@ -9,20 +8,20 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
-  margin: 0 auto;
+  padding: 20px;
   max-width: 1400px;
+  margin: 0 auto;
 }
 
 .apartment-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .apartment-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .apartment-image {
@@ -32,29 +31,29 @@
   background: linear-gradient(45deg, #2c3e50, #4ca1af);
 }
 
-.apartment-image.loaded {
-  background: none;
-}
-
 .apartment-info {
   padding: 18px;
 }
 
 .apartment-info h3 {
   margin: 0 0 10px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .price {
-  font-weight: 700;
   color: var(--primary);
-  font-size: 1.2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
   margin: 10px 0;
 }
 
 @media (max-width: 768px) {
   .apartments-grid {
     grid-template-columns: 1fr;
-    padding: 0 15px;
   }
+}
+
+.noscript {
+  text-align: center;
+  padding: 50px 20px;
 }
