@@ -1,122 +1,264 @@
-// Данные апартаментов
-const apartments = [
-  {
-    id: 1,
-    title: "Морской бриз",
-    location: "Сочи, Адлер",
-    description: "Элитные апартаменты с панорамным видом на море, современный ремонт и инфраструктура премиум-класса.",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [25000, 22000, 20000],
-    features: ["Вид на море", "2 спальни", "Бассейн", "Парковка"],
-    type: "sea-view"
-  },
-  {
-    id: 2,
-    title: "Центральный люкс",
-    location: "Сочи, Центр",
-    description: "Роскошные апартаменты в самом центре города с панорамными окнами и дизайнерским ремонтом.",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [35000, 32000, 30000],
-    features: ["Центр города", "3 спальни", "Консьерж-сервис", "Терраса"],
-    type: "luxury"
-  },
-  {
-    id: 3,
-    title: "Горная вилла",
-    location: "Красная Поляна",
-    description: "Эксклюзивная вилла у подножья гор с частным садом и SPA-комплексом.",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [50000, 45000, 40000],
-    features: ["Горный вид", "4 спальни", "Частный бассейн", "Камин"],
-    type: "villa"
-  }
-];
-
-// Фильтры
-const apartmentsFilter = [
-  { name: "Все", active: true, type: "all" },
-  { name: "С видом на море", active: false, type: "sea-view" },
-  { name: "Люксы", active: false, type: "luxury" },
-  { name: "Виллы", active: false, type: "villa" }
-];
-
-// Инициализация приложения
-document.addEventListener('DOMContentLoaded', () => {
-  renderFilters();
-  renderApartments();
-  setupEventListeners();
-});
-
-// Рендер фильтров
-function renderFilters() {
-  const filterContainer = document.querySelector('.apartments-filter ul');
-  filterContainer.innerHTML = apartmentsFilter.map(filter => `
-    <li class="${filter.active ? 'active' : ''}" data-type="${filter.type}">
-      ${filter.name}
-    </li>
-  `).join('');
+:root {
+    --primary: #ff6b08;
+    --dark: #212121;
+    --light: #ffffff;
+    --gray: #aaaaaa;
 }
 
-// Рендер апартаментов
-function renderApartments(filterType = 'all') {
-  const container = document.querySelector('.apartments-items');
-  const filteredApartments = filterType === 'all' 
-    ? apartments 
-    : apartments.filter(apt => apt.type === filterType);
-  
-  container.innerHTML = filteredApartments.map(apartment => `
-    <article class="apartment" id="apartment-${apartment.id}">
-      <img src="${apartment.image}" alt="${apartment.title}" loading="lazy">
-      <div class="apartment-details">
-        <h4>${apartment.title}</h4>
-        <p>${apartment.description}</p>
-        <div class="apartment-action">
-          <ul>
-            <li>
-              <div class="apartment-period">На 1 сутки</div>
-              <div class="apartment-price">${apartment.prices[0].toLocaleString()} ₽</div>
-            </li>
-            <li>
-              <div class="apartment-period">На 1-3 суток</div>
-              <div class="apartment-price">${apartment.prices[1].toLocaleString()} ₽ <span>сут</span></div>
-            </li>
-            <li>
-              <div class="apartment-period">3+ суток</div>
-              <div class="apartment-price">${apartment.prices[2].toLocaleString()} ₽ <span>сут</span></div>
-            </li>
-          </ul>
-          <a href="#booking" class="button white-button">Забронировать</a>
-        </div>
-      </div>
-    </article>
-  `).join('');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-// Настройка обработчиков событий
-function setupEventListeners() {
-  // Фильтрация
-  document.querySelectorAll('.apartments-filter li').forEach(item => {
-    item.addEventListener('click', () => {
-      const type = item.dataset.type;
-      document.querySelectorAll('.apartments-filter li').forEach(li => {
-        li.classList.remove('active');
-      });
-      item.classList.add('active');
-      renderApartments(type);
-    });
-  });
-
-  // Бронирование
-  document.querySelectorAll('.white-button').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const apartmentTitle = e.target.closest('.apartment').querySelector('h4').textContent;
-      // Здесь можно добавить логику бронирования
-      console.log(`Бронирование: ${apartmentTitle}`);
-    });
-  });
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
 }
 
-// Полифиллы для старых браузеров
-if (!NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
+
+/* Header Styles */
+.header {
+    background-color: rgba(33, 33, 33, 0.9);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--primary);
+}
+
+.phone {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.phone:hover {
+    background-color: #e65100;
+}
+
+/* Main Content */
+.main-content {
+    padding: 100px 0;
+}
+
+.main-content .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.main-info {
+    flex: 1;
+}
+
+.main-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.main-info p {
+    margin-bottom: 30px;
+    color: var(--gray);
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #e65100;
+}
+
+.main-image {
+    flex: 1;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Apartments Section */
+.apartments {
+    padding: 60px 0;
+}
+
+.apartments h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.apartments-content {
+    display: flex;
+    gap: 30px;
+}
+
+.apartments-filter {
+    width: 250px;
+}
+
+.apartments-filter ul {
+    list-style: none;
+}
+
+.apartments-filter li {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.apartments-filter li.active {
+    background-color: rgba(255, 107, 8, 0.2);
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.apartments-items {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.apartment {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.apartment:hover {
+    transform: translateY(-5px);
+}
+
+.apartment img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.apartment-details {
+    padding: 20px;
+}
+
+.apartment-details h4 {
+    margin-bottom: 10px;
+}
+
+.apartment-action {
+    margin-top: 20px;
+}
+
+.apartment-action ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.apartment-action li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.white-button {
+    background-color: white;
+    color: var(--dark);
+    display: block;
+    text-align: center;
+}
+
+.white-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+    padding: 40px 0;
+}
+
+.footer .container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo {
+    height: 50px;
+}
+
+.footer-info {
+    color: var(--gray);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .apartments-content {
+        flex-direction: column;
+    }
+    
+    .apartments-filter {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content .container {
+        flex-direction: column;
+    }
+    
+    .header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer .container {
