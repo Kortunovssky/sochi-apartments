@@ -1,264 +1,71 @@
-:root {
-    --primary: #ff6b08;
-    --dark: #212121;
-    --light: #ffffff;
-    --gray: #aaaaaa;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Elite Sochi Apartments | Аренда элитных апартаментов</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/sochi-apartments/">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preload" href="https://i.ibb.co/0jQ5ZPx/estate-logo.png" as="image">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Apartments">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#apartments">Наши апартаменты</a></li>
+                    <li><a href="#booking">Забронировать</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+78622123456" class="phone">+7 (862) 212-34-56</a>
+        </div>
+    </header>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <section class="main-content">
+        <div class="container">
+            <div class="main-info">
+                <h1>Элитные апартаменты в Сочи с видом на море и горы</h1>
+                <p>От роскошных пентхаусов до приватных вилл - выбирайте идеальное жилье для отдыха</p>
+                <a href="#apartments" class="button">Выбрать апартаменты</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                 alt="Премиальные апартаменты" class="main-image" loading="lazy">
+        </div>
+    </section>
 
-body {
-    font-family: 'Helvetica', Arial, sans-serif;
-    background-color: var(--dark);
-    color: var(--light);
-    line-height: 1.6;
-}
+    <section class="apartments" id="apartments">
+        <div class="container">
+            <h2>Наши апартаменты</h2>
+            <div class="apartments-content">
+                <aside class="apartments-filter">
+                    <ul>
+                        <li class="active" data-type="all">Все</li>
+                        <li data-type="sea-view">С видом на море</li>
+                        <li data-type="luxury">Люксы</li>
+                        <li data-type="villa">Виллы</li>
+                    </ul>
+                </aside>
+                <div class="apartments-items" id="apartments-items"></div>
+            </div>
+        </div>
+    </section>
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+    <footer class="footer">
+        <div class="container">
+            <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Logo" class="footer-logo">
+            <div class="footer-info">
+                <p>© 1996-2023 Elite Sochi Apartments</p>
+                <p>г. Сочи, ул. Приморская, 15</p>
+                <p>+7 (862) 123-45-67</p>
+            </div>
+        </div>
+    </footer>
 
-/* Header Styles */
-.header {
-    background-color: rgba(33, 33, 33, 0.9);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
-}
-
-.menu ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.menu a:hover {
-    color: var(--primary);
-}
-
-.phone {
-    background-color: var(--primary);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.phone:hover {
-    background-color: #e65100;
-}
-
-/* Main Content */
-.main-content {
-    padding: 100px 0;
-}
-
-.main-content .container {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.main-info {
-    flex: 1;
-}
-
-.main-info h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.main-info p {
-    margin-bottom: 30px;
-    color: var(--gray);
-}
-
-.button {
-    display: inline-block;
-    background-color: var(--primary);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #e65100;
-}
-
-.main-image {
-    flex: 1;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Apartments Section */
-.apartments {
-    padding: 60px 0;
-}
-
-.apartments h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
-
-.apartments-content {
-    display: flex;
-    gap: 30px;
-}
-
-.apartments-filter {
-    width: 250px;
-}
-
-.apartments-filter ul {
-    list-style: none;
-}
-
-.apartments-filter li {
-    padding: 12px 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 5px;
-}
-
-.apartments-filter li.active {
-    background-color: rgba(255, 107, 8, 0.2);
-    color: var(--primary);
-    font-weight: bold;
-}
-
-.apartments-items {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.apartment {
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.apartment:hover {
-    transform: translateY(-5px);
-}
-
-.apartment img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.apartment-details {
-    padding: 20px;
-}
-
-.apartment-details h4 {
-    margin-bottom: 10px;
-}
-
-.apartment-action {
-    margin-top: 20px;
-}
-
-.apartment-action ul {
-    list-style: none;
-    margin-bottom: 20px;
-}
-
-.apartment-action li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.white-button {
-    background-color: white;
-    color: var(--dark);
-    display: block;
-    text-align: center;
-}
-
-.white-button:hover {
-    background-color: #e0e0e0;
-}
-
-/* Footer */
-.footer {
-    background-color: #111;
-    padding: 40px 0;
-}
-
-.footer .container {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.footer-logo {
-    height: 50px;
-}
-
-.footer-info {
-    color: var(--gray);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .apartments-content {
-        flex-direction: column;
-    }
-    
-    .apartments-filter {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-content .container {
-        flex-direction: column;
-    }
-    
-    .header .container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .menu ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .footer .container {
+    <script src="main.js"></script>
+</body>
+</html>
