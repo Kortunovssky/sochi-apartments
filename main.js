@@ -1,5 +1,4 @@
-// Здесь будет основной код вашего приложения
-// Пример структуры:
+// Основные данные об апартаментах
 const apartments = [
   {
     id: 1,
@@ -30,6 +29,12 @@ const apartments = [
   }
 ];
 
+// Создаем контейнер для карточек перед их рендерингом
+function initContainer() {
+  const appRoot = document.querySelector('app-root');
+  appRoot.innerHTML = '<div class="apartments-container"></div>';
+}
+
 // Функция для рендеринга карточек апартаментов
 function renderApartments() {
   const container = document.querySelector('.apartments-container');
@@ -51,7 +56,14 @@ function renderApartments() {
   });
 }
 
+// Базовая функция для формы бронирования
+window.showBookingForm = function(apartmentId) {
+  const apartment = apartments.find(a => a.id === apartmentId);
+  alert(`Бронирование: ${apartment.title}\nЦена: ${apartment.price} ₽/ночь`);
+}
+
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
+  initContainer();
   renderApartments();
 });
