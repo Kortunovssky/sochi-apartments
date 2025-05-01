@@ -23,11 +23,19 @@ body {
   line-height: 1.6;
 }
 
+.apartments-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
 .apartment-card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  padding: 15px;
 }
 
 .apartment-card:hover {
@@ -38,12 +46,34 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-radius: 8px;
+}
+
+.apartment-info {
+  padding: 15px 0;
+}
+
+.apartment-info h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.apartment-info p {
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--primary-color);
 }
 
 .booking-form {
   background: rgba(0, 0, 0, 0.7);
   padding: 2rem;
   border-radius: 10px;
+  max-width: 500px;
+  margin: 20px auto;
 }
 
 .btn-primary {
@@ -53,6 +83,11 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  color: white;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .btn-primary:hover {
@@ -60,6 +95,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .apartments-container {
+    grid-template-columns: 1fr;
+  }
+  
   .apartment-card {
     margin-bottom: 20px;
   }
