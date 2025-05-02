@@ -6,16 +6,15 @@
     <title>LUXURY - Премиальные апартаменты</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Аренда премиальных апартаментов с сервисом класса люкс">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo" aria-label="LUXURY - главная страница">LUXURY</a>
-                <button class="menu-toggle" aria-label="Меню">
+                <a href="#" class="logo">LUXURY</a>
+                <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
-                </button>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#about">О нас</a></li>
                     <li><a href="#apartments">Апартаменты</a></li>
@@ -27,139 +26,268 @@
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Элитная недвижимость для избранных</h1>
-                    <p>Наслаждайтесь роскошью и комфортом в наших эксклюзивных апартаментах</p>
-                    <a href="#apartments" class="btn btn-primary">Выбрать апартаменты</a>
-                </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Элитная недвижимость для избранных</h1>
+                <p>Наслаждайтесь роскошью и комфортом в наших эксклюзивных апартаментах</p>
+                <a href="#apartments" class="btn btn-primary">Выбрать апартаменты</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="section about">
-            <div class="container">
-                <h2 class="section-title">О компании</h2>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <i class="fas fa-crown" aria-hidden="true"></i>
-                        <h3>Премиум класс</h3>
-                        <p>Только элитная недвижимость в лучших районах города</p>
-                    </div>
-                    <div class="about-card">
-                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                        <h3>Безопасность</h3>
-                        <p>Круглосуточная охрана и система видеонаблюдения</p>
-                    </div>
-                    <div class="about-card">
-                        <i class="fas fa-concierge-bell" aria-hidden="true"></i>
-                        <h3>Сервис</h3>
-                        <p>Персональный консьерж и обслуживание 24/7</p>
-                    </div>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>О компании</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-crown"></i>
+                    <h3>Премиум класс</h3>
+                    <p>Только элитная недвижимость в лучших районах города</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Безопасность</h3>
+                    <p>Круглосуточная охрана и система видеонаблюдения</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>Сервис</h3>
+                    <p>Персональный консьерж и обслуживание 24/7</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    <section id="apartments" class="apartments">
+    <div class="container">
+        <h2>Наши апартаменты</h2>
+        <div class="apartments-grid">
+            <!-- Апартамент 1 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Лофт в центре">
+                </div>
+                <div class="apartment-info">
+                    <h3>Лофт в центре</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Центральный район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 85 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 2</p>
+                        <p><i class="fas fa-user-friends"></i> До 4 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>8 500 ₽</strong></p>
+                        <p>2 суток: <strong>15 000 ₽</strong></p>
+                        <p>3+ суток: <strong>6 500 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Лофт в центре">Забронировать</a>
+                </div>
+            </div>
 
-        <section id="apartments" class="section apartments">
-            <div class="container">
-                <h2 class="section-title">Наши апартаменты</h2>
-                <div class="apartments-grid" id="apartmentsContainer">
-                    <!-- Карточки апартаментов будут загружены через JS -->
+            <!-- Апартамент 2 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Студия с видом">
+                </div>
+                <div class="apartment-info">
+                    <h3>Студия с видом</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Деловой район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 45 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 1</p>
+                        <p><i class="fas fa-user-friends"></i> До 2 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>6 000 ₽</strong></p>
+                        <p>2 суток: <strong>10 800 ₽</strong></p>
+                        <p>3+ суток: <strong>5 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Студия с видом">Забронировать</a>
                 </div>
             </div>
-        </section>
 
-        <section id="benefits" class="section benefits">
-            <div class="container">
-                <h2 class="section-title">Почему выбирают нас</h2>
-                <div class="benefits-content">
-                    <div class="benefits-text">
-                        <h3>Комфорт и роскошь в каждом детале</h3>
-                        <p>Наши апартаменты спроектированы с учетом самых взыскательных вкусов.</p>
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Дизайнерский ремонт</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Техника премиум-класса</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Видовые характеристики</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Индивидуальные решения</li>
-                        </ul>
+            <!-- Апартамент 3 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Пентхаус">
+                </div>
+                <div class="apartment-info">
+                    <h3>Пентхаус</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Премиум район</span>
                     </div>
-                    <div class="benefits-image">
-                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                             alt="Роскошные апартаменты" loading="lazy">
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 150 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 3</p>
+                        <p><i class="fas fa-user-friends"></i> До 6 гостей</p>
                     </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>15 000 ₽</strong></p>
+                        <p>2 суток: <strong>27 000 ₽</strong></p>
+                        <p>3+ суток: <strong>12 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Пентхаус">Забронировать</a>
                 </div>
             </div>
-        </section>
 
-        <section id="booking" class="section booking">
-            <div class="container">
-                <div class="booking-form">
-                    <h2 class="section-title">Забронируйте просмотр</h2>
-                    <p class="form-description">Оставьте заявку и наш менеджер свяжется с вами</p>
-                    <form id="bookingForm" class="booking-form">
-                        <div class="form-group">
-                            <label for="name" class="visually-hidden">Ваше имя</label>
-                            <input type="text" id="name" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="visually-hidden">Ваш телефон</label>
-                            <input type="tel" id="phone" placeholder="Ваш телефон" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="apartment" class="visually-hidden">Выберите апартаменты</label>
-                            <select id="apartment" required>
-                                <option value="">Выберите апартаменты</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
-                    </form>
+            <!-- Апартамент 4 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Апартаменты у парка">
+                </div>
+                <div class="apartment-info">
+                    <h3>Апартаменты у парка</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Зеленый район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 65 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 2</p>
+                        <p><i class="fas fa-user-friends"></i> До 4 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>7 200 ₽</strong></p>
+                        <p>2 суток: <strong>13 000 ₽</strong></p>
+                        <p>3+ суток: <strong>6 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Апартаменты у парка">Забронировать</a>
                 </div>
             </div>
-        </section>
 
-        <section id="contacts" class="section contacts">
-            <div class="container">
-                <h2 class="section-title">Контакты</h2>
-                <div class="contacts-grid">
-                    <div class="contact-info">
-                        <h3>Наши офисы</h3>
-                        <address>
-                            <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Москва, ул. Тверская, 12</p>
-                            <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
-                            <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@luxury.ru">info@luxury.ru</a></p>
-                        </address>
-                        <div class="social-links">
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        </div>
+            <!-- Апартамент 5 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Бизнес-апартаменты">
+                </div>
+                <div class="apartment-info">
+                    <h3>Бизнес-апартаменты</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Деловой центр</span>
                     </div>
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3737891357376!2d37.61842331593095!3d55.75321998055349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311f!2z0YPQuy4g0KLQstC10YDRgdC60LDRjywgMTIsINCc0L7RgdC60LLQsCwgMTI1MDQ3!5e0!3m2!1sru!2sru!4v1686146220791!5m2!1sru!2sru" 
-                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Карта расположения офиса"></iframe>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 55 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 1</p>
+                        <p><i class="fas fa-user-friends"></i> До 2 гостей</p>
                     </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>9 000 ₽</strong></p>
+                        <p>2 суток: <strong>16 200 ₽</strong></p>
+                        <p>3+ суток: <strong>7 500 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Бизнес-апартаменты">Забронировать</a>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <!-- Апартамент 6 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Семейные апартаменты">
+                </div>
+                <div class="apartment-info">
+                    <h3>Семейные апартаменты</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Спальный район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 90 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 3</p>
+                        <p><i class="fas fa-user-friends"></i> До 6 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>10 000 ₽</strong></p>
+                        <p>2 суток: <strong>18 000 ₽</strong></p>
+                        <p>3+ суток: <strong>8 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Семейные апартаменты">Забронировать</a>
+                </div>
+            </div>
+          </div>
+    </section>
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2>Почему выбирают нас</h2>
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h3>Комфорт и роскошь в каждом детале</h3>
+                    <p>Наши апартаменты спроектированы с учетом самых взыскательных вкусов. Мы предлагаем не просто жилье, а образ жизни.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Дизайнерский ремонт</li>
+                        <li><i class="fas fa-check"></i> Техника премиум-класса</li>
+                        <li><i class="fas fa-check"></i> Видовые характеристики</li>
+                        <li><i class="fas fa-check"></i> Индивидуальные решения</li>
+                    </ul>
+                </div>
+                <div class="benefits-image">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Роскошные апартаменты">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="booking-form">
+                <h2>Забронируйте просмотр</h2>
+                <p>Оставьте заявку и наш менеджер свяжется с вами для уточнения деталей</p>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Ваш телефон" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="apartment" required>
+                            <option value="">Выберите апартаменты</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contacts-grid">
+                <div class="contact-info">
+                    <h3>Наши офисы</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Тверская, 12</p>
+                    <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@luxury.ru</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3737891357376!2d37.61842331593095!3d55.75321998055349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311f!2z0YPQuy4g0KLQstC10YDRgdC60LDRjywgMTIsINCc0L7RgdC60LLQsCwgMTI1MDQ3!5e0!3m2!1sru!2sru!4v1686146220791!5m2!1sru!2sru" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="copyright">
-                    <p>&copy; <span id="currentYear"></span> LUXURY. Все права защищены.</p>
+                    <p>&copy; 2023 LUXURY. Все права защищены.</p>
                 </div>
-                <a href="#" class="back-to-top" aria-label="Наверх">
+                <a href="#" class="back-to-top">
                     <i class="fas fa-arrow-up"></i>
                 </a>
             </div>
         </div>
-    </footer>
-
-    <div id="notification" class="notification" aria-live="polite"></div>
-
-    <script src="script.js" defer></script>
-</body>
-</html>
