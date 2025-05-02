@@ -1,71 +1,155 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Elite Sochi Apartments | Аренда элитных апартаментов</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/sochi-apartments/">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preload" href="https://i.ibb.co/0jQ5ZPx/estate-logo.png" as="image">
+    <title>LUXURY - Премиальные апартаменты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="container">
-            <div class="logo">
-                <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Apartments">
-            </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#apartments">Наши апартаменты</a></li>
-                    <li><a href="#booking">Забронировать</a></li>
+            <nav>
+                <a href="#" class="logo">LUXURY</a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#apartments">Апартаменты</a></li>
+                    <li><a href="#benefits">Преимущества</a></li>
                     <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="#booking" class="btn">Забронировать</a></li>
                 </ul>
             </nav>
-            <a href="tel:+78622123456" class="phone">+7 (862) 212-34-56</a>
         </div>
     </header>
 
-    <section class="main-content">
+    <section class="hero">
         <div class="container">
-            <div class="main-info">
-                <h1>Элитные апартаменты в Сочи с видом на море и горы</h1>
-                <p>От роскошных пентхаусов до приватных вилл - выбирайте идеальное жилье для отдыха</p>
-                <a href="#apartments" class="button">Выбрать апартаменты</a>
+            <div class="hero-content">
+                <h1>Элитная недвижимость для избранных</h1>
+                <p>Наслаждайтесь роскошью и комфортом в наших эксклюзивных апартаментах</p>
+                <a href="#booking" class="btn btn-primary">Выбрать апартаменты</a>
             </div>
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                 alt="Премиальные апартаменты" class="main-image" loading="lazy">
         </div>
     </section>
 
-    <section class="apartments" id="apartments">
+    <section id="about" class="about">
+        <div class="container">
+            <h2>О компании</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-crown"></i>
+                    <h3>Премиум класс</h3>
+                    <p>Только элитная недвижимость в лучших районах города</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Безопасность</h3>
+                    <p>Круглосуточная охрана и система видеонаблюдения</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>Сервис</h3>
+                    <p>Персональный консьерж и обслуживание 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apartments" class="apartments">
         <div class="container">
             <h2>Наши апартаменты</h2>
-            <div class="apartments-content">
-                <aside class="apartments-filter">
-                    <ul>
-                        <li class="active" data-type="all">Все</li>
-                        <li data-type="sea-view">С видом на море</li>
-                        <li data-type="luxury">Люксы</li>
-                        <li data-type="villa">Виллы</li>
-                    </ul>
-                </aside>
-                <div class="apartments-items" id="apartments-items"></div>
+            <div class="apartments-grid" id="apartmentsContainer">
+                <!-- Апартаменты будут загружены через JS -->
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <section id="benefits" class="benefits">
         <div class="container">
-            <img src="https://i.ibb.co/0jQ5ZPx/estate-logo.png" alt="Elite Sochi Logo" class="footer-logo">
-            <div class="footer-info">
-                <p>© 1996-2023 Elite Sochi Apartments</p>
-                <p>г. Сочи, ул. Приморская, 15</p>
-                <p>+7 (862) 123-45-67</p>
+            <h2>Почему выбирают нас</h2>
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h3>Комфорт и роскошь в каждом детале</h3>
+                    <p>Наши апартаменты спроектированы с учетом самых взыскательных вкусов. Мы предлагаем не просто жилье, а образ жизни.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Дизайнерский ремонт</li>
+                        <li><i class="fas fa-check"></i> Техника премиум-класса</li>
+                        <li><i class="fas fa-check"></i> Видовые характеристики</li>
+                        <li><i class="fas fa-check"></i> Индивидуальные решения</li>
+                    </ul>
+                </div>
+                <div class="benefits-image">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Роскошные апартаменты">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="booking-form">
+                <h2>Забронируйте просмотр</h2>
+                <p>Оставьте заявку и наш менеджер свяжется с вами для уточнения деталей</p>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Ваш телефон" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="apartment" required>
+                            <option value="">Выберите апартаменты</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contacts-grid">
+                <div class="contact-info">
+                    <h3>Наши офисы</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Тверская, 12</p>
+                    <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@luxury.ru</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3737891357376!2d37.61842331593095!3d55.75321998055349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311f!2z0YPQuy4g0KLQstC10YDRgdC60LDRjywgMTIsINCc0L7RgdC60LLQsCwgMTI1MDQ3!5e0!3m2!1sru!2sru!4v1686146220791!5m2!1sru!2sru" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2023 LUXURY. Все права защищены.</p>
+                </div>
+                <a href="#" class="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
             </div>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
