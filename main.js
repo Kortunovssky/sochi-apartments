@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') return;
+            
             e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
             const targetElement = document.querySelector(targetId);
+            
             if (targetElement) {
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
@@ -53,114 +53,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Sample apartment data
-    const apartments = [
-        {
-            id: 1,
-            name: "Элитные апартаменты на Тверской",
-            location: "Центральный район",
-            price: "250 000 ₽/мес",
-            image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-            bedrooms: 3,
-            area: 120
-        },
-        {
-            id: 2,
-            name: "Лофт в Красном Октябре",
-            location: "Якиманка",
-            price: "180 000 ₽/мес",
-            image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-            bedrooms: 2,
-            area: 85
-        },
-        {
-            id: 3,
-            name: "Пентхаус с видом на Москву-реку",
-            location: "Пресненский район",
-            price: "350 000 ₽/мес",
-            image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-            bedrooms: 4,
-            area: 200
-        },
-        {
-            id: 4,
-            name: "Студия в Башне Федерации",
-            location: "Москва-Сити",
-            price: "120 000 ₽/мес",
-            image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-            bedrooms: 1,
-            area: 45
-        }
-    ];
-    
-    // Load apartments into the grid
-    const apartmentsContainer = document.getElementById('apartmentsContainer');
-    const apartmentSelect = document.getElementById('apartment');
-    
-    apartments.forEach(apartment => {
-        // Add to apartments grid
-        const apartmentCard = document.createElement('div');
-        apartmentCard.className = 'apartment-card';
-        apartmentCard.innerHTML = `
-            <div class="apartment-image">
-                <img src="${apartment.image}" alt="${apartment.name}">
-            </div>
-            <div class="apartment-info">
-                <h3>${apartment.name}</h3>
-                <div class="apartment-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>${apartment.location}</span>
-                </div>
-                <div class="apartment-price">${apartment.price}</div>
-                <div class="apartment-features">
-                    <span><i class="fas fa-bed"></i> ${apartment.bedrooms} спальни</span>
-                    <span><i class="fas fa-ruler-combined"></i> ${apartment.area} м²</span>
-                </div>
-                <a href="#booking" class="btn btn-primary" data-id="${apartment.id}">Забронировать</a>
-            </div>
-        `;
-        apartmentsContainer.appendChild(apartmentCard);
-        
-        // Add to select in booking form
-        const option = document.createElement('option');
-        option.value = apartment.id;
-        option.textContent = apartment.name;
-        apartmentSelect.appendChild(option);
-    });
-    
-    // Booking form submission
+    // Booking form functionality
     const bookingForm = document.getElementById('bookingForm');
     const notification = document.getElementById('notification');
     
+    // Set apartment name when "Book" button is clicked
+    document.querySelectorAll('[data-apartment]').forEach(button => {
+        button.addEventListener('click', function() {
+            const apartmentName = this.getAttribute('data-apartment');
+            document.getElementById('apartment').value = apartmentName;
+        });
+    });
+    
+    // Form submission
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const name = document.getElementById('name').value.trim();
         const phone = document.getElementById('phone').value.trim();
-        const apartmentId = document.getElementById('apartment').value;
+        const apartment = document.getElementById('apartment').value;
         
         // Simple validation
-        if (!name || !phone || !apartmentId) {
+        if (!name || !phone || !apartment) {
             showNotification('Пожалуйста, заполните все поля', 'error');
             return;
         }
         
+        // Phone validation
+        const phoneRegex = /^(\+7|8)[\s(]?\d{3}[)\s]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
+        if (!phoneRegex.test(phone)) {
+            showNotification('Пожалуйста, введите корректный номер телефона', 'error');
+            return;
+        }
+        
         // In a real app, you would send this data to a server
-        console.log('Booking submitted:', { name, phone, apartmentId });
+        console.log('Booking submitted:', { name, phone, apartment });
         
         // Show success message
-        showNotification('Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
+        showNotification('Ваша заявка на "' + apartment + '" успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
         
         // Reset form
         bookingForm.reset();
-    });
-    
-    // Click on "Book" buttons in apartment cards
-    document.querySelectorAll('[data-id]').forEach(button => {
-        button.addEventListener('click', function() {
-            const apartmentId = this.getAttribute('data-id');
-            document.getElementById('apartment').value = apartmentId;
-        });
     });
     
     // Show notification function
@@ -170,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             notification.classList.remove('show');
-        }, 3000);
+        }, 5000);
     }
     
     // Scroll animations
