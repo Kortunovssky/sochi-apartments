@@ -1,231 +1,203 @@
-// Данные апартаментов
-const apartments = [
-  {
-    id: 1,
-    title: "Морской бриз",
-    location: "Сочи, Адлер",
-    description: "Элитные апартаменты с панорамным видом на море, современный ремонт и инфраструктура премиум-класса.",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [25000, 22000, 20000],
-    features: ["Вид на море", "2 спальни", "Бассейн", "Парковка"],
-    type: "sea-view"
-  },
-  {
-    id: 2,
-    title: "Центральный люкс",
-    location: "Сочи, Центр",
-    description: "Роскошные апартаменты в самом центре города с панорамными окнами и дизайнерским ремонтом.",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [35000, 32000, 30000],
-    features: ["Центр города", "3 спальни", "Консьерж-сервис", "Терраса"],
-    type: "luxury"
-  },
-  {
-    id: 3,
-    title: "Горная вилла",
-    location: "Красная Поляна",
-    description: "Эксклюзивная вилла у подножья гор с частным садом и SPA-комплексом.",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [50000, 45000, 40000],
-    features: ["Горный вид", "4 спальни", "Частный бассейн", "Камин"],
-    type: "villa"
-  },
-  {
-    id: 4,
-    title: "Пентхаус 'Золотой'",
-    location: "Сочи, Центр",
-    description: "Эксклюзивный пентхаус с панорамными видами на море и горы, частным лифтом.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [75000, 70000, 65000],
-    features: ["3 спальни", "Терраса", "Джакузи", "Парковка"],
-    type: "luxury"
-  },
-  {
-    id: 5,
-    title: "Апартаменты 'Лазурные'",
-    location: "Сочи, Имеретинская бухта",
-    description: "Современные апартаменты в шаге от моря с развитой инфраструктурой.",
-    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [30000, 28000, 25000],
-    features: ["2 спальни", "Вид на море", "Бассейн", "Спа"],
-    type: "sea-view"
-  },
-  {
-    id: 6,
-    title: "Вилла 'Горный воздух'",
-    location: "Красная Поляна",
-    description: "Просторная вилла в альпийском стиле с камином и сауной.",
-    image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    prices: [60000, 55000, 50000],
-    features: ["5 спален", "Камин", "Сауна", "Бильярд"],
-    type: "villa"
-  }
-];
-
-// Инициализация приложения
-document.addEventListener('DOMContentLoaded', () => {
-  renderApartments();
-  setupEventListeners();
-  setupSmoothScrolling();
-});
-
-// Рендер апартаментов
-function renderApartments(filterType = 'all') {
-  const container = document.getElementById('apartments-items');
-  const filteredApartments = filterType === 'all' 
-    ? apartments 
-    : apartments.filter(apt => apt.type === filterType);
-  
-  container.innerHTML = filteredApartments.map(apartment => `
-    <article class="apartment" data-id="${apartment.id}">
-      <img src="${apartment.image}" alt="${apartment.title}" loading="lazy">
-      <div class="apartment-details">
-        <h4>${apartment.title}</h4>
-        <p>${apartment.location}</p>
-        <p class="apartment-description">${apartment.description}</p>
-        <div class="apartment-features">
-          ${apartment.features.map(feature => `<span>${feature}</span>`).join('')}
-        </div>
-        <div class="apartment-action">
-          <ul>
-            <li>
-              <div class="apartment-period">На 1 сутки</div>
-              <div class="apartment-price">${apartment.prices[0].toLocaleString()} ₽</div>
-            </li>
-            <li>
-              <div class="apartment-period">На 1-3 суток</div>
-              <div class="apartment-price">${apartment.prices[1].toLocaleString()} ₽ <span>/сутки</span></div>
-            </li>
-            <li>
-              <div class="apartment-period">3+ суток</div>
-              <div class="apartment-price">${apartment.prices[2].toLocaleString()} ₽ <span>/сутки</span></div>
-            </li>
-          </ul>
-          <a href="#booking" class="button white-button book-btn">Забронировать</a>
-        </div>
-      </div>
-    </article>
-  `).join('');
-}
-
-// Настройка обработчиков событий
-function setupEventListeners() {
-  // Фильтрация
-  document.querySelectorAll('.apartments-filter li').forEach(item => {
-    item.addEventListener('click', () => {
-      document.querySelectorAll('.apartments-filter li').forEach(li => {
-        li.classList.remove('active');
-      });
-      item.classList.add('active');
-      renderApartments(item.dataset.type);
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        this.querySelector('i').classList.toggle('fa-bars');
+        this.querySelector('i').classList.toggle('fa-times');
     });
-  });
-
-  // Бронирование
-  document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('book-btn')) {
-      e.preventDefault();
-      const apartmentId = e.target.closest('.apartment').dataset.id;
-      const apartment = apartments.find(a => a.id == apartmentId);
-      showBookingModal(apartment);
-    }
-  });
-}
-
-// Плавная прокрутка
-function setupSmoothScrolling() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth'
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            }
         });
-      }
     });
-  });
-}
-
-// Модальное окно бронирования
-function showBookingModal(apartment) {
-  const modalHtml = `
-    <div class="modal-overlay">
-      <div class="modal">
-        <button class="close-modal">&times;</button>
-        <h3>Бронирование: ${apartment.title}</h3>
-        <p>${apartment.location}</p>
-        
-        <form class="booking-form">
-          <div class="form-group">
-            <label for="name">Ваше имя</label>
-            <input type="text" id="name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="phone">Телефон</label>
-            <input type="tel" id="phone" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="dates">Даты проживания</label>
-            <input type="text" id="dates" placeholder="Выберите даты" readonly>
-          </div>
-          
-          <div class="form-group">
-            <label>Тариф:</label>
-            <div class="price-options">
-              <label>
-                <input type="radio" name="price" value="${apartment.prices[0]}" checked>
-                1 сутки: ${apartment.prices[0].toLocaleString()} ₽
-              </label>
-              <label>
-                <input type="radio" name="price" value="${apartment.prices[1]}">
-                1-3 суток: ${apartment.prices[1].toLocaleString()} ₽/сутки
-              </label>
-              <label>
-                <input type="radio" name="price" value="${apartment.prices[2]}">
-                3+ суток: ${apartment.prices[2].toLocaleString()} ₽/сутки
-              </label>
+    
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTop.style.opacity = '1';
+            backToTop.style.visibility = 'visible';
+        } else {
+            backToTop.style.opacity = '0';
+            backToTop.style.visibility = 'hidden';
+        }
+    });
+    
+    backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Sample apartment data
+    const apartments = [
+        {
+            id: 1,
+            name: "Элитные апартаменты на Тверской",
+            location: "Центральный район",
+            price: "250 000 ₽/мес",
+            image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            bedrooms: 3,
+            area: 120
+        },
+        {
+            id: 2,
+            name: "Лофт в Красном Октябре",
+            location: "Якиманка",
+            price: "180 000 ₽/мес",
+            image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            bedrooms: 2,
+            area: 85
+        },
+        {
+            id: 3,
+            name: "Пентхаус с видом на Москву-реку",
+            location: "Пресненский район",
+            price: "350 000 ₽/мес",
+            image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            bedrooms: 4,
+            area: 200
+        },
+        {
+            id: 4,
+            name: "Студия в Башне Федерации",
+            location: "Москва-Сити",
+            price: "120 000 ₽/мес",
+            image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            bedrooms: 1,
+            area: 45
+        }
+    ];
+    
+    // Load apartments into the grid
+    const apartmentsContainer = document.getElementById('apartmentsContainer');
+    const apartmentSelect = document.getElementById('apartment');
+    
+    apartments.forEach(apartment => {
+        // Add to apartments grid
+        const apartmentCard = document.createElement('div');
+        apartmentCard.className = 'apartment-card';
+        apartmentCard.innerHTML = `
+            <div class="apartment-image">
+                <img src="${apartment.image}" alt="${apartment.name}">
             </div>
-          </div>
-          
-          <button type="submit" class="button">Подтвердить бронирование</button>
-        </form>
-      </div>
-    </div>
-  `;
-  
-  document.body.insertAdjacentHTML('beforeend', modalHtml);
-  
-  // Обработчики для модального окна
-  const modal = document.querySelector('.modal-overlay');
-  modal.querySelector('.close-modal').addEventListener('click', () => {
-    modal.remove();
-  });
-  
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.remove();
+            <div class="apartment-info">
+                <h3>${apartment.name}</h3>
+                <div class="apartment-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${apartment.location}</span>
+                </div>
+                <div class="apartment-price">${apartment.price}</div>
+                <div class="apartment-features">
+                    <span><i class="fas fa-bed"></i> ${apartment.bedrooms} спальни</span>
+                    <span><i class="fas fa-ruler-combined"></i> ${apartment.area} м²</span>
+                </div>
+                <a href="#booking" class="btn btn-primary" data-id="${apartment.id}">Забронировать</a>
+            </div>
+        `;
+        apartmentsContainer.appendChild(apartmentCard);
+        
+        // Add to select in booking form
+        const option = document.createElement('option');
+        option.value = apartment.id;
+        option.textContent = apartment.name;
+        apartmentSelect.appendChild(option);
+    });
+    
+    // Booking form submission
+    const bookingForm = document.getElementById('bookingForm');
+    const notification = document.getElementById('notification');
+    
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const apartmentId = document.getElementById('apartment').value;
+        
+        // Simple validation
+        if (!name || !phone || !apartmentId) {
+            showNotification('Пожалуйста, заполните все поля', 'error');
+            return;
+        }
+        
+        // In a real app, you would send this data to a server
+        console.log('Booking submitted:', { name, phone, apartmentId });
+        
+        // Show success message
+        showNotification('Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
+        
+        // Reset form
+        bookingForm.reset();
+    });
+    
+    // Click on "Book" buttons in apartment cards
+    document.querySelectorAll('[data-id]').forEach(button => {
+        button.addEventListener('click', function() {
+            const apartmentId = this.getAttribute('data-id');
+            document.getElementById('apartment').value = apartmentId;
+        });
+    });
+    
+    // Show notification function
+    function showNotification(message, type) {
+        notification.textContent = message;
+        notification.className = `notification ${type} show`;
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 3000);
     }
-  });
-  
-  document.querySelector('.booking-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Ваше бронирование принято! Мы свяжемся с вами для подтверждения.');
-    modal.remove();
-  });
-  
-  // Инициализация выбора дат (можно подключить библиотеку flatpickr)
-  document.getElementById('dates').addEventListener('focus', function() {
-    this.type = 'date';
-  });
-}
-
-// Полифиллы для старых браузеров
-if (!NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
+    
+    // Scroll animations
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.about, .apartments, .benefits, .booking, .contacts');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (elementPosition < screenPosition) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    // Set initial styles
+    document.querySelectorAll('.about, .apartments, .benefits, .booking, .contacts').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    // First run
+    animateOnScroll();
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
+});
