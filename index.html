@@ -58,16 +58,186 @@
             </div>
         </div>
     </section>
-
     <section id="apartments" class="apartments">
-        <div class="container">
-            <h2>Наши апартаменты</h2>
-            <div class="apartments-grid" id="apartmentsContainer">
-                <!-- Апартаменты будут загружены через JS -->
+    <div class="container">
+        <h2>Наши апартаменты</h2>
+        <div class="apartments-grid">
+            <!-- Апартамент 1 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Лофт в центре">
+                </div>
+                <div class="apartment-info">
+                    <h3>Лофт в центре</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Центральный район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 85 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 2</p>
+                        <p><i class="fas fa-user-friends"></i> До 4 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>8 500 ₽</strong></p>
+                        <p>2 суток: <strong>15 000 ₽</strong></p>
+                        <p>3+ суток: <strong>6 500 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Лофт в центре">Забронировать</a>
+                </div>
+            </div>
+
+            <!-- Апартамент 2 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Студия с видом">
+                </div>
+                <div class="apartment-info">
+                    <h3>Студия с видом</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Деловой район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 45 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 1</p>
+                        <p><i class="fas fa-user-friends"></i> До 2 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>6 000 ₽</strong></p>
+                        <p>2 суток: <strong>10 800 ₽</strong></p>
+                        <p>3+ суток: <strong>5 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Студия с видом">Забронировать</a>
+                </div>
+            </div>
+
+            <!-- Апартамент 3 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Пентхаус">
+                </div>
+                <div class="apartment-info">
+                    <h3>Пентхаус</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Премиум район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 150 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 3</p>
+                        <p><i class="fas fa-user-friends"></i> До 6 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>15 000 ₽</strong></p>
+                        <p>2 суток: <strong>27 000 ₽</strong></p>
+                        <p>3+ суток: <strong>12 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Пентхаус">Забронировать</a>
+                </div>
+            </div>
+
+            <!-- Апартамент 4 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Апартаменты у парка">
+                </div>
+                <div class="apartment-info">
+                    <h3>Апартаменты у парка</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Зеленый район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 65 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 2</p>
+                        <p><i class="fas fa-user-friends"></i> До 4 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>7 200 ₽</strong></p>
+                        <p>2 суток: <strong>13 000 ₽</strong></p>
+                        <p>3+ суток: <strong>6 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Апартаменты у парка">Забронировать</a>
+                </div>
+            </div>
+
+            <!-- Апартамент 5 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Бизнес-апартаменты">
+                </div>
+                <div class="apartment-info">
+                    <h3>Бизнес-апартаменты</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Деловой центр</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 55 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 1</p>
+                        <p><i class="fas fa-user-friends"></i> До 2 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>9 000 ₽</strong></p>
+                        <p>2 суток: <strong>16 200 ₽</strong></p>
+                        <p>3+ суток: <strong>7 500 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Бизнес-апартаменты">Забронировать</a>
+                </div>
+            </div>
+
+            <!-- Апартамент 6 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Семейные апартаменты">
+                </div>
+                <div class="apartment-info">
+                    <h3>Семейные апартаменты</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Спальный район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 90 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 3</p>
+                        <p><i class="fas fa-user-friends"></i> До 6 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>10 000 ₽</strong></p>
+                        <p>2 суток: <strong>18 000 ₽</strong></p>
+                        <p>3+ суток: <strong>8 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Семейные апартаменты">Забронировать</a>
+                </div>
+            </div>
+
+            <!-- Апартамент 7 -->
+            <div class="apartment-card">
+                <div class="apartment-image">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Элитные апартаменты">
+                </div>
+                <div class="apartment-info">
+                    <h3>Элитные апартаменты</h3>
+                    <div class="apartment-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Престижный район</span>
+                    </div>
+                    <div class="apartment-details">
+                        <p><i class="fas fa-ruler-combined"></i> Площадь: 120 м²</p>
+                        <p><i class="fas fa-bed"></i> Комнат: 3</p>
+                        <p><i class="fas fa-user-friends"></i> До 5 гостей</p>
+                    </div>
+                    <div class="apartment-pricing">
+                        <p>1 сутки: <strong>12 500 ₽</strong></p>
+                        <p>2 суток: <strong>22 500 ₽</strong></p>
+                        <p>3+ суток: <strong>10 000 ₽/сутки</strong></p>
+                    </div>
+                    <a href="#booking" class="btn btn-primary" data-apartment="Элитные апартаменты">Забронировать</a>
+                </div>
             </div>
         </div>
     </section>
-
     <section id="benefits" class="benefits">
         <div class="container">
             <h2>Почему выбирают нас</h2>
