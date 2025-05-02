@@ -269,3 +269,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run on scroll
     window.addEventListener('scroll', animateOnScroll);
 });
+
