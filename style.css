@@ -1,25 +1,24 @@
-/* === Основные переменные === */
+/* Основные переменные */
 :root {
     --color-primary: #2c3e50;
-    --color-secondary: #3498db;
-    --color-accent: #e74c3c;
+    --color-accent: #3498db;
+    --color-highlight: #e74c3c;
     --color-gray-dark: #7f8c8d;
     --color-white: #ffffff;
     --color-black: #333333;
     --color-border-light: #ececec;
-    --transition-base: cubic-bezier(.4, .0, .2, 1);
+    --transition-base: cubic-bezier(.4,.0,.2,1);
     --transition-time: 0.3s;
     --font-body: 'Open Sans', Arial, sans-serif;
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 6rem; /* Большой интервал между секциями */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
     --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.15);
     --radius-base: 8px;
 }
 
-/* === Базовые стили === */
+/* Базовые правила */
 *,
 *::before,
 *::after {
@@ -29,7 +28,7 @@
 }
 
 html {
-    font-size: 62.5%; /* 1 rem = 10px */
+    font-size: 62.5%; /* Размер базового шрифта (1 rem = 10px) */
 }
 
 body {
@@ -47,104 +46,122 @@ body {
     margin: 0 auto;
 }
 
-/* === Кнопки сделаны более привлекательными === */
+/* Универсальные стили */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+}
+
 .button {
     display: inline-block;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: 12px 24px;
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--color-white);
-    background-color: var(--color-secondary);
+    background-color: var(--color-accent);
     border-radius: var(--radius-base);
-    transition: background-color var(--transition-time) var(--transition-base), transform var(--transition-time) var(--transition-base);
+    transition: background-color var(--transition-time) var(--transition-base);
     border: none;
     cursor: pointer;
-    user-select: none;
-    box-shadow: var(--shadow-soft);
 }
 
 .button:hover {
-    background-color: darken(var(--color-secondary), 10%);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-medium);
-}
-
-.button--primary {
-    background-color: var(--color-accent);
-}
-
-.button--primary:hover {
     background-color: darken(var(--color-accent), 10%);
 }
 
-/* === Большая форма бронирования === */
-.booking-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--color-white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-base);
-    box-shadow: var(--shadow-medium);
-    color: var(--color-black);
-    position: relative;
-    z-index: 1;
+.button--primary {
+    background-color: var(--color-highlight);
 }
 
-.booking-form h2 {
-    text-align: center;
-    margin-bottom: var(--spacing-md);
+.button--primary:hover {
+    background-color: darken(var(--color-highlight), 10%);
+}
+
+/* Верхняя шапка */
+.page-header {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    z-index: 1000;
+    padding: 1.5rem 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: 700;
     color: var(--color-primary);
 }
 
-.booking-form p {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-gray-dark);
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
-.form-group {
+.nav-link {
+    font-weight: 600;
+    transition: color var(--transition-time) var(--transition-base);
+}
+
+.nav-link:hover {
+    color: var(--color-accent);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+/* Герой страницы */
+.hero {
+    height: calc(100vh - 80px); /* Minus the height of the header */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7),
+        transparent
+    ), url("https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80")
+        no-repeat center center/cover;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Height of the header */
+}
+
+.hero-content {
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: var(--spacing-md);
 }
 
-.form-input {
-    width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-base);
-    font-size: 1.6rem;
-    transition: border-color var(--transition-time) var(--transition-base);
+.hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
 }
 
-.form-input:focus {
-    outline: none;
-    border-color: var(--color-secondary);
-}
-
-.select-wrapper {
-    position: relative;
-}
-
-.select-wrapper select {
-    appearance: none;
-    width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-base);
-    font-size: 1.6rem;
-    transition: border-color var(--transition-time) var(--transition-base);
-    background-color: var(--color-white);
-    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 0h24v24H0z' fill='%23fff'/%3e%3cg fill='%237f8c8d'%3e%3cpath d='M7 10l5 5 5-5z'/ %3e%3c/g%3e%3c/svg%3e);
-    background-position: right 1rem center;
-    background-repeat: no-repeat;
-    background-size: 1.6rem;
-}
-
-.select-wrapper select:focus {
-    outline: none;
-    border-color: var(--color-secondary);
-}
-
-/* === Другие секции страницы === */
+/* Секция "О нас" */
 .section-about {
     padding: var(--spacing-lg) 0;
     background-color: var(--color-white);
@@ -178,7 +195,7 @@ body {
 
 .about-card__icon {
     font-size: 3.2rem;
-    color: var(--color-secondary);
+    color: var(--color-accent);
     margin-bottom: var(--spacing-md);
 }
 
@@ -187,82 +204,7 @@ body {
     margin-bottom: var(--spacing-sm);
 }
 
-/* === Шапка страницы === */
-.page-header {
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-soft);
-    position: relative;
-    z-index: 1000;
-    padding: var(--spacing-md) 0;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--color-primary);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.nav-link {
-    font-weight: 600;
-    transition: color var(--transition-time) var(--transition-base);
-}
-
-.nav-link:hover {
-    color: var(--color-secondary);
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 2.4rem;
-    cursor: pointer;
-}
-
-/* === Главная секция ("Герой") === */
-.hero {
-    height: calc(100vh - 80px); /* Вычтем высоту шапки */
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.7),
-        transparent
-    ), url("https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80")
-        no-repeat center center/cover;
-    color: var(--color-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
-}
-
-.hero-content {
-    max-width: 600px;
-    text-align: center;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin-bottom: var(--spacing-md);
-}
-
-.hero-subtitle {
-    font-size: 1.8rem;
-    margin-bottom: var(--spacing-lg);
-    opacity: 0.9;
-}
-
-/* === Секции апартаментов === */
+/* Секция "Апартаменты" */
 .section-apartments {
     padding: var(--spacing-lg) 0;
     background-color: var(--color-white);
@@ -321,7 +263,7 @@ body {
 
 .apartment-card__location i {
     margin-right: var(--spacing-sm);
-    color: var(--color-secondary);
+    color: var(--color-accent);
 }
 
 .apartment-card__description {
@@ -347,11 +289,11 @@ body {
 .apartment-card__price {
     font-size: 1.6rem;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-highlight);
     margin-bottom: var(--spacing-md);
 }
 
-/* === Отдел "Почему выбирают нас?" === */
+/* Секция "Преимущества" */
 .section-benefits {
     padding: var(--spacing-lg) 0;
     background-color: var(--color-white);
@@ -381,7 +323,7 @@ body {
 }
 
 .benefits-text i {
-    color: var(--color-accent);
+    color: var(--color-highlight);
     margin-right: var(--spacing-md);
 }
 
@@ -397,7 +339,82 @@ body {
     display: block;
 }
 
-/* === Контакты === */
+/* Секция "Забронировать просмотр" */
+.section-booking {
+    padding: var(--spacing-lg) 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8)
+    ),
+    url("https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80") no-repeat center center/cover;
+    color: var(--color-white);
+}
+
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-medium);
+    color: var(--color-black);
+}
+
+.booking-form h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.booking-form p {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-gray-dark);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-base);
+    font-size: 1.6rem;
+    transition: border-color var(--transition-time) var(--transition-base);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    appearance: none;
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-base);
+    font-size: 1.6rem;
+    transition: border-color var(--transition-time) var(--transition-base);
+    background-color: var(--color-white);
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 0h24v24H0z' fill='%23fff'/%3e%3cg fill='%237f8c8d'%3e%3cpath d='M7 10l5 5 5-5z'/ %3e%3c/g%3e%3c/svg%3e);
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.6rem;
+}
+
+.select-wrapper select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+/* Секция контактов */
 .section-contacts {
     padding: var(--spacing-lg) 0;
     background-color: var(--color-white);
@@ -423,7 +440,7 @@ body {
 
 .contact-info i {
     margin-right: var(--spacing-md);
-    color: var(--color-secondary);
+    color: var(--color-accent);
     width: 20px;
     text-align: center;
 }
@@ -441,13 +458,13 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--color-secondary);
+    background-color: var(--color-accent);
     color: var(--color-white);
     transition: background-color var(--transition-time) var(--transition-base);
 }
 
 .social-links a:hover {
-    background-color: darken(var(--color-secondary), 10%);
+    background-color: darken(var(--color-accent), 10%);
 }
 
 .map {
@@ -456,7 +473,7 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
-/* === Футер === */
+/* Футер */
 .footer {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -480,16 +497,16 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--color-accent);
+    background-color: var(--color-highlight);
     color: var(--color-white);
     transition: background-color var(--transition-time) var(--transition-base);
 }
 
 .back-to-top:hover {
-    background-color: darken(var(--color-accent), 10%);
+    background-color: darken(var(--color-highlight), 10%);
 }
 
-/* === Адаптация под маленькие экраны === */
+/* Mobile-first адаптивная поддержка */
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
