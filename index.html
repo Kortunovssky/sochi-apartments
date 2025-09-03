@@ -9,157 +9,268 @@
     <meta name="description" content="Аренда премиальных апартаментов с сервисом класса люкс">
 </head>
 <body>
-    <header>
+    <header class="page-header page-header--fixed">
         <div class="container">
-            <nav>
-                <a href="#" class="logo" aria-label="LUXURY - главная страница">LUXURY</a>
-                <button class="menu-toggle" aria-label="Меню">
+            <nav class="nav nav--flex">
+                <a href="#" class="logo logo--luxury" aria-label="Главная страница">LUXURY</a>
+                <button class="menu-toggle menu-toggle--hidden" aria-label="Отображение меню">
                     <i class="fas fa-bars"></i>
                 </button>
-                <ul class="nav-links">
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#apartments">Апартаменты</a></li>
-                    <li><a href="#benefits">Преимущества</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                    <li><a href="#booking" class="btn">Забронировать</a></li>
+                <ul class="nav-links nav-links--desktop">
+                    <li class="nav-item"><a href="#about" class="nav-link">О нас</a></li>
+                    <li class="nav-item"><a href="#apartments" class="nav-link">Апартаменты</a></li>
+                    <li class="nav-item"><a href="#benefits" class="nav-link">Преимущества</a></li>
+                    <li class="nav-item"><a href="#contacts" class="nav-link">Контакты</a></li>
+                    <li class="nav-item"><a href="#booking" class="btn btn--primary">Забронировать</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-   <main>
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Элитная недвижимость для избранных</h1>
-                <p>Наслаждайтесь роскошью и комфортом в наших эксклюзивных апартаментах</p>
-                <a href="#apartments" class="btn btn-primary">Выбрать апартаменты</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">О компании</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <i class="fas fa-crown" aria-hidden="true"></i>
-                    <h3>Премиум класс</h3>
-                    <p>Только элитная недвижимость в лучших районах города</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <h3>Безопасность</h3>
-                    <p>Круглосуточная охрана и система видеонаблюдения</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-concierge-bell" aria-hidden="true"></i>
-                    <h3>Сервис</h3>
-                    <p>Персональный консьерж и обслуживание 24/7</p>
+    <main>
+        <section class="hero hero--cover">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Элитная недвижимость для избранных</h1>
+                    <p class="hero-subtitle">Наслаждайтесь роскошью и комфортом в наших эксклюзивных апартаментах</p>
+                    <a href="#apartments" class="btn btn--primary">Выбрать апартаменты</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="apartments" class="section apartments">
-        <div class="container">
-            <h2 class="section-title">Наши апартаменты</h2>
-            <div class="apartments-grid" id="apartmentsContainer">
-                <!-- Карточки апартаментов будут загружены через JS -->
-            </div>
-        </div>
-    </section>
-
-    <section id="benefits" class="section benefits">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают нас</h2>
-            <div class="benefits-content">
-                <div class="benefits-text">
-                    <h3>Комфорт и роскошь в каждом детале</h3>
-                    <p>Наши апартаменты спроектированы с учетом самых взыскательных вкусов.</p>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Дизайнерский ремонт</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Техника премиум-класса</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Видовые характеристики</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Индивидуальные решения</li>
-                    </ul>
-                </div>
-                <div class="benefits-image">
-                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Роскошные апартаменты" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="booking" class="section booking">
-        <div class="container">
-            <div class="booking-form">
-                <h2 class="section-title">Забронируйте просмотр</h2>
-                <p class="form-description">Оставьте заявку и наш менеджер свяжется с вами</p>
-                <form id="bookingForm" class="booking-form">
-                    <div class="form-group">
-                        <label for="name" class="visually-hidden">Ваше имя</label>
-                        <input type="text" id="name" placeholder="Ваше имя" required>
+        <section id="about" class="section section--about">
+            <div class="container">
+                <h2 class="section-title">О компании</h2>
+                <div class="about-grid">
+                    <div class="about-card about-card--crown">
+                        <i class="fas fa-crown" aria-hidden="true"></i>
+                        <h3 class="about-card__title">Премиум класс</h3>
+                        <p class="about-card__desc">Только элитная недвижимость в лучших районах города</p>
                     </div>
-                    <div class="form-group">
-                        <label for="phone" class="visually-hidden">Ваш телефон</label>
-                        <input type="tel" id="phone" placeholder="Ваш телефон" required>
+                    <div class="about-card about-card--security">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <h3 class="about-card__title">Безопасность</h3>
+                        <p class="about-card__desc">Круглосуточная охрана и система видеонаблюдения</p>
                     </div>
-                    <div class="form-group">
-                        <label for="apartment" class="visually-hidden">Выберите апартаменты</label>
-                        <select id="apartment" required>
-                            <option value="">Выберите апартаменты</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacts" class="section contacts">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <div class="contacts-grid">
-                <div class="contact-info">
-                    <h3>Наши офисы</h3>
-                    <address>
-                        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Москва, ул. Тверская, 12</p>
-                        <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
-                        <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@luxury.ru">info@luxury.ru</a></p>
-                    </address>
-                    <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <div class="about-card about-card--service">
+                        <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                        <h3 class="about-card__title">Сервис</h3>
+                        <p class="about-card__desc">Персональный консьерж и обслуживание 24/7</p>
                     </div>
                 </div>
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3737891357376!2d37.61842331593095!3d55.75321998055349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311f!2z0YPQuy4g0KLQstC10YDRgdC60LDRjywgMTIsINCc0L7RgdC60LLQsCwgMTI1MDQ3!5e0!3m2!1sru!2sru!4v1686146220791!5m2!1sru!2sru" 
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Карта расположения офиса"></iframe>
+            </div>
+        </section>
+
+        <section id="apartments" class="section section--apartments">
+            <div class="container">
+                <h2 class="section-title">Наши апартаменты</h2>
+                <div class="apartments-grid">
+                    <!-- Карточка апартаментов №1 -->
+                    <div class="apartment-card">
+                        <div class="apartment-card__image">
+                            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Лофт в центре">
+                        </div>
+                        <div class="apartment-card__info">
+                            <h3 class="apartment-card__title">Лофт в центре</h3>
+                            <p class="apartment-card__location"><i class="fas fa-map-marker-alt"></i> Центр</p>
+                            <p class="apartment-card__description">Премиум лофт с уникальными видами.</p>
+                            <ul class="apartment-card__features">
+                                <li>Wi-Fi</li>
+                                <li>Парковка</li>
+                                <li>Холодильник</li>
+                            </ul>
+                            <p class="apartment-card__price">Цена за ночь: <strong>8 500₽</strong></p>
+                            <a href="#booking" class="btn btn--primary">Забронировать</a>
+                        </div>
+                    </div>
+
+                    <!-- Карточка апартаментов №2 -->
+                    <div class="apartment-card">
+                        <div class="apartment-card__image">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Панорамный вид">
+                        </div>
+                        <div class="apartment-card__info">
+                            <h3 class="apartment-card__title">Панорамный вид</h3>
+                            <p class="apartment-card__location"><i class="fas fa-map-marker-alt"></i> Набережная</p>
+                            <p class="apartment-card__description">Откройте окна на живописную набережную.</p>
+                            <ul class="apartment-card__features">
+                                <li>Балкон</li>
+                                <li>Кондиционер</li>
+                                <li>Вид на воду</li>
+                            </ul>
+                            <p class="apartment-card__price">Цена за ночь: <strong>10 000₽</strong></p>
+                            <a href="#booking" class="btn btn--primary">Забронировать</a>
+                        </div>
+                    </div>
+
+                    <!-- Карточка апартаментов №3 -->
+                    <div class="apartment-card">
+                        <div class="apartment-card__image">
+                            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Эксклюзивные апартаменты">
+                        </div>
+                        <div class="apartment-card__info">
+                            <h3 class="apartment-card__title">Эксклюзивные апартаменты</h3>
+                            <p class="apartment-card__location"><i class="fas fa-map-marker-alt"></i> Парковый квартал</p>
+                            <p class="apartment-card__description">Природа прямо за окном.</p>
+                            <ul class="apartment-card__features">
+                                <li>Терраса</li>
+                                <li>Частный сад</li>
+                                <li>Детская игровая зона</li>
+                            </ul>
+                            <p class="apartment-card__price">Цена за ночь: <strong>7 500₽</strong></p>
+                            <a href="#booking" class="btn btn--primary">Забронировать</a>
+                        </div>
+                    </div>
+
+                    <!-- Карточка апартаментов №4 -->
+                    <div class="apartment-card">
+                        <div class="apartment-card__image">
+                            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Компактные студии">
+                        </div>
+                        <div class="apartment-card__info">
+                            <h3 class="apartment-card__title">Компактные студии</h3>
+                            <p class="apartment-card__location"><i class="fas fa-map-marker-alt"></i> Городской бизнес-центр</p>
+                            <p class="apartment-card__description">Экономичные и уютные апартаменты.</p>
+                            <ul class="apartment-card__features">
+                                <li>Мини-кухня</li>
+                                <li>Гардероб</li>
+                                <li>Высокий этаж</li>
+                            </ul>
+                            <p class="apartment-card__price">Цена за ночь: <strong>9 000₽</strong></p>
+                            <a href="#booking" class="btn btn--primary">Забронировать</a>
+                        </div>
+                    </div>
+
+                    <!-- Карточка апартаментов №5 -->
+                    <div class="apartment-card">
+                        <div class="apartment-card__image">
+                            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Семейные апартаменты">
+                        </div>
+                        <div class="apartment-card__info">
+                            <h3 class="apartment-card__title">Семейные апартаменты</h3>
+                            <p class="apartment-card__location"><i class="fas fa-map-marker-alt"></i> Удобный спальный район</p>
+                            <p class="apartment-card__description">Просторная гостиная и комфортные спальни.</p>
+                            <ul class="apartment-card__features">
+                                <li>Игровая комната</li>
+                                <li>Гараж</li>
+                                <li>Библиотека</li>
+                            </ul>
+                            <p class="apartment-card__price">Цена за ночь: <strong>12 000₽</strong></p>
+                            <a href="#booking" class="btn btn--primary">Забронировать</a>
+                        </div>
+                    </div>
+
+                    <!-- Карточка апартаментов №6 -->
+                    <div class="apartment-card">
+                        <div class="apartment-card__image">
+                            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Новая застройка">
+                        </div>
+                        <div class="apartment-card__info">
+                            <h3 class="apartment-card__title">Новые апартаменты</h3>
+                            <p class="apartment-card__location"><i class="fas fa-map-marker-alt"></i> Новый жилой комплекс</p>
+                            <p class="apartment-card__description">Современная инфраструктура и высокие технологии.</p>
+                            <ul class="apartment-card__features">
+                                <li>Умный дом</li>
+                                <li>Камеры наблюдения</li>
+                                <li>Система турникетов</li>
+                            </ul>
+                            <p class="apartment-card__price">Цена за ночь: <strong>6 500₽</strong></p>
+                            <a href="#booking" class="btn btn--primary">Забронировать</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="copyright">
-                <p>© <span id="currentYear"></span> LUXURY. Все права защищены.</p>
+        <section id="benefits" class="section section--benefits">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="benefits-content">
+                    <div class="benefits-text">
+                        <h3 class="benefits-text__title">Комфорт и роскошь в каждом деталь</h3>
+                        <p class="benefits-text__desc">Наши апартаменты проектируются с учётом высоких стандартов качества и вкуса.</p>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Дизайнерские ремонты</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Современная бытовая техника</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Отличные виды из окон</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Индивидуальные интерьеры</li>
+                        </ul>
+                    </div>
+                    <div class="benefits-image">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Интерьер квартиры премиум-класса">
+                    </div>
+                </div>
             </div>
-            <a href="#" class="back-to-top" aria-label="Наверх">
-                <i class="fas fa-arrow-up"></i>
-            </a>
+        </section>
+
+        <section id="booking" class="section section--booking">
+            <div class="container">
+                <div class="booking-form">
+                    <h2 class="section-title">Забронируйте просмотр</h2>
+                    <p class="form-description">Оставьте заявку и наш менеджер свяжется с вами для уточнения деталей.</p>
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label for="name" class="visually-hidden">Ваше имя</label>
+                            <input type="text" id="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="visually-hidden">Ваш телефон</label>
+                            <input type="tel" id="phone" placeholder="Ваш телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apartment" class="visually-hidden">Выберите апартаменты</label>
+                            <select id="apartment" required>
+                                <option value="">Выберите апартаменты</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="section section--contacts">
+            <div class="container">
+                <h2 class="section-title">Контакты</h2>
+                <div class="contacts-grid">
+                    <div class="contact-info">
+                        <h3 class="contact-info__title">Наши офисы</h3>
+                        <address>
+                            <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Москва, ул. Тверская, 12</p>
+                            <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@luxury.ru">info@luxury.ru</a></p>
+                        </address>
+                        <div class="social-links">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3737891357376!2d37.61842331593095!3d55.75321998055349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311f!2z0YPQuy4g0KLQstC10YDRgdC60LDRjywgMTIsINCc0L7RgdC60LLQsCwgMTI1MDQ3!5e0!3m2!1sru!2sru!4v1686146220791!5m2!1sru!2sru" 
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Карта расположения офиса"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer footer--bottom">
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>© <span id="currentYear"></span> LUXURY. Все права защищены.</p>
+                </div>
+                <a href="#" class="back-to-top back-to-top--hidden" aria-label="Наверх">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<div id="notification" class="notification" aria-live="polite"></div>
+    <div id="notification" class="notification notification--hidden" aria-live="polite"></div>
 
-<script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
