@@ -10,7 +10,6 @@
     --transition-speed: 0.3s;
 }
 
-/* Базовые настройки */
 *,
 *::before,
 *::after {
@@ -59,9 +58,7 @@ img {
 }
 
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     padding: 12px 24px;
     background-color: var(--secondary-color);
     color: white;
@@ -97,7 +94,6 @@ img {
     width: 1px;
 }
 
-/* Шапка (Header) */
 .header {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -165,7 +161,6 @@ img {
     }
 }
 
-/* Герой секции (Hero section) */
 .hero {
     height: calc(100vh - 80px); /* Минус шапка */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
@@ -174,7 +169,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px; /* Высоту шапки учитываем */
+    padding-top: 80px; 
 }
 
 .hero-content {
@@ -193,7 +188,6 @@ img {
     opacity: 0.9;
 }
 
-/* О компании (About us) */
 .section.about {
     padding: 5rem 0;
     background-color: var(--light-color);
@@ -236,7 +230,6 @@ img {
     margin-bottom: 1rem;
 }
 
-/* Наши апартаменты (Our apartments) */
 .section.apartments {
     padding: 5rem 0;
     background-color: #f9f9f9;
@@ -254,6 +247,7 @@ img {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    height: 400px;        
 }
 
 .apartment-card:hover {
@@ -267,18 +261,19 @@ img {
 }
 
 .apartment-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-speed);
+    width: 100%;       
+    height: 200px;      
+    object-fit: cover;     
+    transition: transform var(--transition-speed); 
 }
-
 .apartment-card:hover .apartment-image img {
     transform: scale(1.1);
 }
 
 .apartment-info {
     padding: 1.5rem;
+    height: calc(100% - 200px); 
+    overflow-y: auto;      
 }
 
 .apartment-info h3 {
@@ -325,7 +320,6 @@ img {
     margin-bottom: 1rem;
 }
 
-/* Почему выбирают нас (Why choose us) */
 .section.benefits {
     padding: 5rem 0;
     background-color: var(--light-color);
@@ -421,7 +415,6 @@ img {
     border-color: var(--secondary-color);
 }
 
-/* Контакты (Contacts) */
 .section.contacts {
     padding: 5rem 0;
 }
